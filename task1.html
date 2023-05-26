@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Week Task 1</title>
+    <style>
+        #leaderboard{
+            color: white;
+            text-align: center;
+            font-family: 'Segoe UI';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            position: absolute;
+
+            height: 58px;
+
+            top: -30px;
+            line-height: 64px;
+        }
+
+
+        .rowcontainer{
+            width: 1440px;
+            height: 20px;
+            top: 300px;
+            background: #d2f4f2;
+        }
+
+        .rectange1{
+            width: 1440px;
+            height: 100px;
+            background: #656CEC;
+            border-bottom: 1px solid #656CEC;
+        }
+
+        #line1{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 15000px;
+            height: 0px;
+            left: 0px;
+            top: 75px;
+
+            border: 2px solid #FFFFFF;
+            transform: rotate(-0.12deg);
+        }
+
+        .outer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .leaderboardcontainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -20px;
+            background-color: #656cec;
+            border-radius: 0px 0px 50px 50px;
+            padding-bottom: 30px;
+            width: 1440px;
+            height: 450px;
+            margin-bottom: 20px;
+        }
+
+        .circlecontainer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: #babeff;
+            border: 5px solid white;
+            margin: 50px;
+            margin-top: 30px;
+            top: 60px;
+            position: relative;
+        }
+
+        #bigcircle2{
+            width: 214px;
+            height: 214px;
+        }
+
+        .smallcircle {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #babeff;
+            border: 0px solid white;
+        }
+
+        #smallcircle2 {
+            top: -17%;
+        }
+
+        .smallcircle span {
+            font-size: 20px;
+            font-weight: light;
+            color: white;
+            padding: 10px;
+        }
+
+        .circlenumber{
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+            color: white;
+        }
+
+        #circlenumber2{
+            top:-17%;
+        }
+
+        /* Existing styles */
+
+        .topnames {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        }
+
+        .topname {
+        margin: 0 10px;
+        font-family: "Inter";
+        font-size: 23px;
+        color: white;
+        border-radius: 20px;
+        padding: 10px;
+        margin-top: -10px;
+        margin-left: 55px;
+        margin-right: 55px;
+        display: flex;
+        justify-content: center;
+        background-color: #babeff;
+        width: 190px;
+        height: 25px;
+        align-items: flex-end;
+        }
+
+        #topname1,
+        #topname3{
+            width: 150px;
+            height: 20px;
+            
+
+        }
+
+
+        /*.topname{
+            width: 156px;
+            height: 32px;
+            top: 500;
+            background: #000be1;
+            border-radius: 16px;
+        }
+
+        #topname1,
+        #topname2,
+        #topname3{
+
+            display:flex;
+            top: 180px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            position: absolute;
+            background-color: #babeff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            align-items: centre;
+            justify-content: center;
+
+        }
+
+        #topname1{
+            left: 10%;
+        }*/
+
+        /*#topnames1{
+
+        }
+        #topnames2,
+        #topnames3 {
+            margin: 0 10px;
+            font-size: 12px;
+            color: white;
+        }
+
+        .topnames {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }*/
+
+
+        .table-container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .col {
+            text-align: left;
+        }
+
+        .col2 {
+            width: 150px;
+        }
+
+        .col3 {
+            text-align: right;
+        }
+
+        table{
+            flex-direction: column;
+            align-items: center;
+            table-layout: fixed;
+            width: 1440px;
+            border-collapse: collapse;
+            background-color: #D2D4F2;
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #D2D4F2;
+            text-align: left;
+        }
+
+        td{
+            font-size: 30px;
+            font-family: 'Inter';
+        }
+
+        .column1 {
+            width: 100px;
+            text-align: center;
+        }
+
+        .column2{
+            width: 130px;
+            padding: 0px;
+            align-items: center; /* Vertically center the content */
+            justify-content: center; /* Horizontally center the content */
+        }
+
+        .column3 {
+            width:850px;
+        }
+
+        .column4 {
+            width: 290px
+        }
+
+        .avtrcircle {
+            margin: 20px;
+            box-sizing: border-box;
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+            border-radius: 50%;
+            background: #babeff;
+            border: 4px solid white;
+        }
+
+
+        tr {
+            height: 80px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    
+    <div class="outer">
+        <div class="leaderboardcontainer">
+            <div id="leaderboard"><h1>Leaderboard</h1></div>
+            <div class="rectange1">
+            
+            <div id="line1"></div>
+            </div>
+            <div class="circlecontainer">
+                <div class="circle" id="bigcircle1">
+                    <div class="smallcircle" id="smallcircle1"></div>
+                        <span class="circlenumber">2</span>
+                        
+                </div>
+                <div class="circle" id="bigcircle2">
+                    <div class="smallcircle" id="smallcircle2"></div>
+                    <span class="circlenumber" id="circlenumber2">1</span>
+                    
+                </div>
+                <div class="circle" id="bigcircle3">
+                    <div class="smallcircle" id="smallcircle3"></div>
+                    <span class="circlenumber">3</span>
+                    
+                </div>
+            </div>
+            <div class="topnames">
+                <div class="topname" id="topname1">Jeremy &nbsp; 672</div>
+                <div class="topname" id="topname2">Amanda &nbsp;764</div>
+                <div class="topname" id="topname3">Jeffery &nbsp;542</div>
+                
+                
+                
+            </div>
+            
+        </div>
+    </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="col column1">4</td>
+                    <td class="col column2"> <span class="avtrcircle"></span></td>
+                    <td class="col column3">Joe</td>
+                    <td class="col column4">445</td>
+                    
+                </tr>
+            </tbody>
+
+        </table>
+
+        <table>
+            <tbody>
+
+                <tr>
+                    <td class="col column1">5</td>
+                    <td class="col column2"> <span class="avtrcircle"></span></td>
+                    <td class="col column3">Jenny</td>
+                    <td class="col column4">438</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <table>
+            <tbody>
+
+                
+                <tr>
+                    <td class="col column1">6</td>
+                    <td class="col column2"> <span class="avtrcircle"></span></td>
+                    <td class="col column3">Josh</td>
+                    <td class="col column4">432</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <table>
+            <tbody>
+
+                
+                <tr>
+                    <td class="col column1">7</td>
+                    <td class="col column2"> <span class="avtrcircle"></span></td>
+                    <td class="col column3">Stella</td>
+                    <td class="col column4">321</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <table>
+            <tbody>
+
+                
+                <tr>
+                    <td class="col column1">8</td>
+                    <td class="col column2"> <span class="avtrcircle"></span></td>
+                    <td class="col column3">Sally</td>
+                    <td class="col column4">300</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+</body>
+</html>
